@@ -22,6 +22,19 @@ class AddbooksController < ApplicationController
 	def show
 	end
 
+	def edit
+	end
+
+	def update
+		if @addbook.update(addbook_params)
+			redirect_to addbook_path
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+	end
 
 
 	private

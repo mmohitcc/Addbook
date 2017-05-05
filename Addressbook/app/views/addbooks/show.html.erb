@@ -1,2 +1,6 @@
 <h2><%= @addbook.title%> </h2>
 <p> <%= @addbook.description %> </p>
+
+
+<%= link_to "Back", root_path%>
+<%= link_to "Edit", edit_addbook_path(@addbook) %>
