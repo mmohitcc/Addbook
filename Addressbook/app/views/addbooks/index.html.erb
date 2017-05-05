@@ -1,1 +1,14 @@
-<h1>This should be index page</h1>
+<h1>Your Addressbooks</h1>
+
+
+<% @addbooks.each do |f| %>
+	<h2> <%= f.title %></h2>
+	<%= link_to "View Addressbook", addbook_path(f)%>
+
+	<% end %>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+<%= link_to "New Addressbook", new_addbook_path, class: "btn btn-default"%>

@@ -1,7 +1,9 @@
 class AddbooksController < ApplicationController
+	before_action :find_message, only: [:show, :edit, :update, :destroy]
+
 
 	def index
-
+		@addbooks = Addbook.all.order("created_at DESC")
 	end
 
 	def new
@@ -17,6 +19,9 @@ class AddbooksController < ApplicationController
 		end
 	end
 
+	def show
+	end
+
 
 
 	private
@@ -24,5 +29,13 @@ class AddbooksController < ApplicationController
 	def addbook_params
 		params.require(:addbook).permit(:title, :description)
 	end
+
+	
+	def find_message
+			@addbook = Addbook.find(params[:id])
+	end
+
+
+
 
 end
