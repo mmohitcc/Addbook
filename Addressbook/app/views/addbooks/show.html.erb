@@ -2,9 +2,14 @@
 <p> <%= @addbook.description %> </p>
 
 <h3>Contacts:</h3>
+
+<%= render @addbook.contacts %>
+
+
+
+
+<h3>Add Contacts:</h3>
 <%= render 'contacts/form' %>
-
-
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_addbook_path(@addbook) %>
 <%= link_to "Delete", addbook_path(@addbook), method: :delete, data: {confirm: "Are you sure you want to delte this addressbook!?"} %>

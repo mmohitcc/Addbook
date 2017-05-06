@@ -15,6 +15,35 @@ class ContactsController < ApplicationController
 
 
 
+	def edit
+
+	@addbook = Addbook.find(params[:addbook_id])
+	@contact = @addbook.contacts.find(params[:id])
+
+	end
+
+
+	def update
+		@addbook = Addbook.find(params[:addbook_id])
+		@contact = @addbook.contacts.find(params[:id])
+		if @contact.update(contact_params)
+		redirect_to addbook_path(@addbook)
+	else
+		render 'edit'
+	end
+	end
+
+
+	def destroy
+
+		@addbook = Addbook.find(params[:addbook_id])
+		@contact = @addbook.contacts.find(params[:id])
+		@contact.destroy
+		redirect_to addbook_path(@addbook)
+
+	end
+
+
 
 	private
 

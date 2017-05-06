@@ -1,0 +1,17 @@
+<p> 
+
+</br>
+<u><%= contact.name %> </u>
+
+</br>
+<%= contact.address %> 
+</br>
+<%= contact.email %> 
+</br>
+<%= contact.phone %> 
+ </p>
+
+
+ <%= link_to "Edit", edit_addbook_contact_path(contact.addbook, contact) %>
+
+ <%= link_to "Delete", addbook_contact_path(contact.addbook, contact), method: :delete, data: {confirm: "Are you sure you want to delte this contact!?"} %>

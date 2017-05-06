@@ -1,0 +1,12 @@
+<h1> Edit Comment </h1>
+
+
+<%= simple_form_for([@addbook, @contact]) do |f| %>
+	
+	<%= f.input :name, label: "Name" %>
+	<%= f.input :address, label: "Address" %>
+	<%= f.input :email, label: "Email" %>
+	<%= f.input :phone, label: "Phone Number" %>
+	<%= f.button :submit %>
+<% end %>
+
