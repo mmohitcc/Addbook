@@ -4,6 +4,7 @@ class AddbooksController < ApplicationController
 
 	def index
 		@addbooks = Addbook.all.order("created_at DESC")
+
 	end
 
 	def new
@@ -12,6 +13,7 @@ class AddbooksController < ApplicationController
 
 	def create
 		@addbook = current_user.addbooks.build(addbook_params)
+		@addbook.user_id = current_user.id
 		if @addbook.save
 			redirect_to root_path
 		else

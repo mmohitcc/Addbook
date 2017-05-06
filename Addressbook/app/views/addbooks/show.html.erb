@@ -1,7 +1,7 @@
-<h2><%= @addbook.title%> </h2>
-<p> <%= @addbook.description %> </p>
+<h2><strong><%= @addbook.title%> Contacts</strong> </h2>
+<h3> <small> <%= @addbook.description %> </small> </h3>
 
-<h3>Contacts:</h3>
+<h3><small>Contacts: </small></h3>
 
 <%= render @addbook.contacts %>
 
@@ -11,5 +11,11 @@
 <h3>Add Contacts:</h3>
 <%= render 'contacts/form' %>
 <%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_addbook_path(@addbook) %>
-<%= link_to "Delete", addbook_path(@addbook), method: :delete, data: {confirm: "Are you sure you want to delte this addressbook!?"} %>
+
+<% if user_signed_in? %>
+	<% if @addbook.user_id == current_user.id %>	
+		<%= link_to "Edit", edit_addbook_path(@addbook) %>
+		<%= link_to "Delete", addbook_path(@addbook), method: :delete, data: {confirm: "Are you sure you want to delte this addressbook!?"} %>
+	<% end %>
+<% end %>
+

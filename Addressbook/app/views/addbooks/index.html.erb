@@ -1,12 +1,28 @@
-<h1><u>Your Address books</u></h1>
+
+
+<% if user_signed_in? %>
+	<h1><u>Your Address books</u></h1>
+<% end %>
+
+<% if user_signed_in? == false %>
+	<h1><strong><u>Please Sign Up to create an Address Book!</u></strong></h1>
+<% end %>
 
 
 <% @addbooks.each do |f| %>
-	<h2> <%= f.title %></h2>
-	<%= link_to "View Addressbook", addbook_path(f)%>
-
+	<% if user_signed_in? %>
+		<% if f.user_id == current_user.id %>	
+			<h2> <%= f.title %></h2>
+			<%= link_to "View Address Book", addbook_path(f)%>
+		<% end %>
 	<% end %>
+<% end %>
+
+
 
 	<br/>
 	<br/>
-<%= link_to "New Addressbook", new_addbook_path, class: "btn btn-default"%>
+<% if user_signed_in? %>
+	<%= link_to "New Address Book", new_addbook_path, class: "btn btn-default"%>
+
+<% end %>
