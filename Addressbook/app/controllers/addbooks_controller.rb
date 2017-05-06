@@ -34,6 +34,8 @@ class AddbooksController < ApplicationController
 	end
 
 	def destroy
+		@addbook.destroy
+		redirect_to root_path
 	end
 
 
