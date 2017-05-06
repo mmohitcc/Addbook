@@ -7,11 +7,11 @@ class AddbooksController < ApplicationController
 	end
 
 	def new
-		@addbook = Addbook.new
+		@addbook = current_user.addbooks.build
 	end
 
 	def create
-		@addbook = Addbook.new(addbook_params)
+		@addbook = current_user.addbooks.build(addbook_params)
 		if @addbook.save
 			redirect_to root_path
 		else
