@@ -1,7 +1,23 @@
+
+<% if user_signed_in? %>
 <h2><strong><%= @addbook.title%> Contacts</strong> </h2>
 <h3> <small> <%= @addbook.description %> </small> </h3>
 
 <h3><small>Contacts: </small></h3>
+
+
+<% @contacts.each do |f| %>
+	<% if user_signed_in? %>
+		<% if f.user_id == current_user.id %>	
+			<h2> <%= f.phonenumber %></h2>
+			<h2> <%= f.name %></h2>
+
+			<%= link_to "View Address Book", addbook_path(f)%>
+		<% end %>
+	<% end %>
+<% end %>
+
+
 
 <%= render @addbook.contacts %>
 
@@ -18,4 +34,8 @@
 		<%= link_to "Delete", addbook_path(@addbook), method: :delete, data: {confirm: "Are you sure you want to delte this addressbook!?"} %>
 	<% end %>
 <% end %>
+<% end %>
 
+<% if user_signed_in? == false %>
+<h1> Please Sign In </h1>
+<% end %>

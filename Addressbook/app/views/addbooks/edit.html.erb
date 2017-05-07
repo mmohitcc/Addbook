@@ -1,4 +1,10 @@
+<% if user_signed_in? %>
 <h1>Edit</h1>
 
 
 <%= render 'form' %>
+<% end %>
+
+<% if user_signed_in? == false %>
+	<h1> Please Sign In</h1>
+<% end %>

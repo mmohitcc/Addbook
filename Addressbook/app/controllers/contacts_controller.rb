@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+	before_action :authenticate_user!
 
 	def create
 		@addbook = Addbook.find(params[:addbook_id])
@@ -48,7 +49,7 @@ class ContactsController < ApplicationController
 	private
 
 	def contact_params
-		params.require(:contact).permit(:name, :address, :email, :phone)
+		params.require(:contact).permit(:name, :address, :email, :phonenumber)
 	end
 
 

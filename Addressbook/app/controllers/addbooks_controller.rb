@@ -1,5 +1,6 @@
 class AddbooksController < ApplicationController
 	before_action :find_message, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
 
 
 	def index
@@ -22,6 +23,7 @@ class AddbooksController < ApplicationController
 	end
 
 	def show
+		@contacts = Contact.all.order('name ASC')
 	end
 
 	def edit
