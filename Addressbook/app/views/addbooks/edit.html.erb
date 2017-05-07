@@ -1,8 +1,7 @@
 <% if user_signed_in? %>
 <h1>Edit</h1>
-
-
 <%= render 'form' %>
+<%= link_to "Back", addbook_path(@addbook) %>
 <% end %>
 
 <% if user_signed_in? == false %>
