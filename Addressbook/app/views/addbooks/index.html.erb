@@ -1,14 +1,16 @@
 
 
 <% if user_signed_in? %>
-	<h1><u>Your Address books</u></h1>
+	<h1 class = "home-header" >Your Address books</h1>
 <% end %>
 
 <% if user_signed_in? == false %>
-	<h1><strong><u>Please Sign Up to create an Address Book!</u></strong></h1>
+	<h1><strong>Please Sign Up to create an Address Book!</u></strong></h1>
 <% end %>
 
 
+
+<div class = "indexBooks">
 <% @addbooks.each do |f| %>
 	<% if user_signed_in? %>
 		<% if f.user_id == current_user.id %>	
@@ -17,6 +19,7 @@
 		<% end %>
 	<% end %>
 <% end %>
+</div>
 
 
 

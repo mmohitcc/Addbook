@@ -4,7 +4,7 @@ class AddbooksController < ApplicationController
 
 
 	def index
-		@addbooks = Addbook.all.order("created_at DESC")
+		@addbooks = Addbook.all.order('title ASC')
 
 	end
 
@@ -23,7 +23,7 @@ class AddbooksController < ApplicationController
 	end
 
 	def show
-		@contacts = Contact.all.order('name ASC')
+		@contacts = @addbook.contacts.all.order('name ASC')
 	end
 
 	def edit

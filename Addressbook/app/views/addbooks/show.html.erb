@@ -1,33 +1,29 @@
 
 <% if user_signed_in? %>
-<h2><strong><%= @addbook.title%> Contacts</strong> </h2>
-<h3> <small> <%= @addbook.description %> </small> </h3>
+<div>
+<h2 class = "bookheader"><strong><%= @addbook.title%> </strong> </h2>
+<h3 class = "bookDescription"> <%= @addbook.description %></h3>
+</div>
 
-<h3><small>Contacts: </small></h3>
+<h3><small> <strong>Contacts: </small> </strong></h3>
 
-
+<div class = "contacts">
 <% @contacts.each do |f| %>
 	<% if user_signed_in? %>
 		<% if f.user_id == current_user.id %>	
-			
-			<h2> <%= f.name %></h2>
-			<h2> <%= f.address %></h2>
-			<h2> <%= f.email %></h2>
-			<h2> <%= f.phonenumber %></h2>
-		 <%= link_to "Edit", edit_addbook_contact_path(f.addbook, f) %>
-
- <%= link_to "Delete", addbook_contact_path(f.addbook, f), method: :delete, data: {confirm: "Are you sure you want to delte this contact!?"} %>
-			
+			<div class = "seperatecontacts">	
+			<h2 class = "name"> <%= f.name %></h2>
+			<h2 class = "address"> <%= f.address %></h2>
+			<h2 class = "aemail"> <%= f.email %></h2>
+			<h2 class = "phonenumber"> <%= f.phonenumber %></h2>
+			<div class = "editText">
+		<%= link_to "Edit", edit_addbook_contact_path(f.addbook,f) %>
+		</div>
+		</div>
 		<% end %>
 	<% end %>
 <% end %>
-
-
-
-
-<%-# commented line<%= render @addbook.contacts -%> 
-
-
+</div>
 
 
 <h3>Add Contacts:</h3>
